@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to rtd_devops_henrique’s documentation! &mdash; Documentação rtd_devops_henrique </title>
+  <title>Guia para subir aplicacao crud conternizada! &mdash; Documentação rtd_devops_henrique </title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -40,7 +40,26 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to rtd_devops_henrique’s documentation!</a></li>
+<li><a class="reference internal" href="#">Guia para subir aplicacao crud conternizada!</a></li>
+<li><a class="reference internal" href="#passo-1-instalacao-do-multipass">Passo 1: Instalacao do multipass</a><ul>
+<li><a class="reference internal" href="#atualizacao-de-dependencias">Atualizacao de dependencias</a></li>
+<li><a class="reference internal" href="#download-do-multipass">Download do multipass</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#passo-2-criacao-da-vm">Passo 2: Criacao da VM</a><ul>
+<li><a class="reference internal" href="#maquina-virtual-de-desenvolvimento">Maquina virtual de desenvolvimento</a></li>
+<li><a class="reference internal" href="#acesso-a-maquina-virtual">Acesso a maquina virtual</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#passo-3-download-da-aplicacao">Passo 3: Download da aplicacao</a></li>
+<li><a class="reference internal" href="#passo-4-criacao-dos-containers">Passo 4: Criacao dos containers</a><ul>
+<li><a class="reference internal" href="#container-banco-de-dados">Container banco de dados</a><ul>
+<li><a class="reference internal" href="#acesso-ao-container-banco-de-dados">Acesso ao container banco de dados</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#container-servidor-web">Container servidor web</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </div>
@@ -58,7 +77,7 @@
           <div role="navigation" aria-label="Navegação da página">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Welcome to rtd_devops_henrique’s documentation!</li>
+      <li class="breadcrumb-item active">Guia para subir aplicacao crud conternizada!</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
       </li>
@@ -68,10 +87,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="welcome-to-rtd-devops-henrique-s-documentation">
-<h1>Welcome to rtd_devops_henrique’s documentation!<a class="headerlink" href="#welcome-to-rtd-devops-henrique-s-documentation" title="Permalink to this heading"></a></h1>
-<div class="toctree-wrapper compound">
+  <section id="guia-para-subir-aplicacao-crud-conternizada">
+<h1>Guia para subir aplicacao crud conternizada!<a class="headerlink" href="#guia-para-subir-aplicacao-crud-conternizada" title="Permalink to this heading"></a></h1>
+</section>
+<section id="passo-1-instalacao-do-multipass">
+<h1>Passo 1: Instalacao do multipass<a class="headerlink" href="#passo-1-instalacao-do-multipass" title="Permalink to this heading"></a></h1>
+<section id="atualizacao-de-dependencias">
+<h2>Atualizacao de dependencias<a class="headerlink" href="#atualizacao-de-dependencias" title="Permalink to this heading"></a></h2>
+<p>Atualize as dependencias do linux para que nao haja qualquer outro erro <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">update</span></code> tambem o comando <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">upgrade</span></code></p>
+</section>
+<section id="download-do-multipass">
+<h2>Download do multipass<a class="headerlink" href="#download-do-multipass" title="Permalink to this heading"></a></h2>
+<p>Segue o link do site oficial do multipass para a instalacao do mesmo</p>
+<p><a class="reference external" href="https://multipass.run/install">Download Multipass</a></p>
+<p>Apos a instalacao concluida siga para o passo 2</p>
+</section>
+</section>
+<section id="passo-2-criacao-da-vm">
+<h1>Passo 2: Criacao da VM<a class="headerlink" href="#passo-2-criacao-da-vm" title="Permalink to this heading"></a></h1>
+<section id="maquina-virtual-de-desenvolvimento">
+<h2>Maquina virtual de desenvolvimento<a class="headerlink" href="#maquina-virtual-de-desenvolvimento" title="Permalink to this heading"></a></h2>
+<p>Crie uma maquina virtual para testes antes de executar em seu ambiente de producao</p>
+<p>Para criar sua maquina virtual utilize o comando:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>$ multipass launch -n servDev docker
+</pre></div>
 </div>
+<p>Para a criacao estaremos utilizando a imagem <code class="docutils literal notranslate"><span class="pre">docker</span></code> para que ja venha configurado o docker, o comando <code class="docutils literal notranslate"><span class="pre">-n</span></code> serve para definir um nome para a maquina virtual, caso queira mudar apenas digite <code class="docutils literal notranslate"><span class="pre">multipass</span> <span class="pre">launch</span> <span class="pre">-n</span> <span class="pre">nome-da-maquina-virtual</span> <span class="pre">docker</span></code>.</p>
+</section>
+<section id="acesso-a-maquina-virtual">
+<h2>Acesso a maquina virtual<a class="headerlink" href="#acesso-a-maquina-virtual" title="Permalink to this heading"></a></h2>
+<p>Utilize o comando:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>$ multipass shell servDev
+</pre></div>
+</div>
+<p>O comando <code class="docutils literal notranslate"><span class="pre">multipass</span> <span class="pre">shell</span></code> e utilizado para acessar a maquina virtual.</p>
+<p>Atualize os pacotes e dependencias da sua maquina virtual:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>$ sudo apt update &amp;&amp; sudo apt upgrade
+</pre></div>
+</div>
+<p>Maquina virtual atualiza.</p>
+</section>
+</section>
+<section id="passo-3-download-da-aplicacao">
+<h1>Passo 3: Download da aplicacao<a class="headerlink" href="#passo-3-download-da-aplicacao" title="Permalink to this heading"></a></h1>
+<p>Antes de fazer download verifique se voce esta dentro da maquina virtual, apos verificado digite o comando:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>$ git clone https://web:glpat-zyZUFmz1h5J_zyMg9Z2D@gitlab.com/henrique_corp/projetocrud
+</pre></div>
+</div>
+<p>Verifique se a pasta foi baixada com o comando <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+</section>
+<section id="passo-4-criacao-dos-containers">
+<h1>Passo 4: Criacao dos containers<a class="headerlink" href="#passo-4-criacao-dos-containers" title="Permalink to this heading"></a></h1>
+<section id="container-banco-de-dados">
+<h2>Container banco de dados<a class="headerlink" href="#container-banco-de-dados" title="Permalink to this heading"></a></h2>
+<p>Para executar o container utilize o seguinte comando:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>$ docker container run -d -e MYSQL_ROOT_PASSWORD=suasenha --name bancoDeDados -v ./projetocrud/cruddb.sql:/docker-entrypoint-initdb.d/cruddb.sql mysql:8.0-debian
+</pre></div>
+</div>
+<p>Lembre-se de substituir a senha em <code class="docutils literal notranslate"><span class="pre">MYSQL_ROOT_PASSWORD=suasenha</span></code> adicione uma senha forte.</p>
+<p>Verifique se o container esta rodando com o comando <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span> <span class="pre">ls</span></code>.</p>
+<section id="acesso-ao-container-banco-de-dados">
+<h3>Acesso ao container banco de dados<a class="headerlink" href="#acesso-ao-container-banco-de-dados" title="Permalink to this heading"></a></h3>
+<p>Para acessar o container digite o seguinte comando:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>$ docker container exec -it bancoDeDados bash
+</pre></div>
+</div>
+<p>Para sair do container digite o comando <code class="docutils literal notranslate"><span class="pre">exit</span></code></p>
+</section>
+</section>
+<section id="container-servidor-web">
+<h2>Container servidor web<a class="headerlink" href="#container-servidor-web" title="Permalink to this heading"></a></h2>
+</section>
 </section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
