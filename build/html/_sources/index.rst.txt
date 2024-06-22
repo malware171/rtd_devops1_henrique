@@ -6,14 +6,18 @@
 Guia para subir aplicação CRUD contêinerizada!
 ===============================================
 
+Este guia passo a passo o ajudará a configurar e executar uma aplicação CRUD em um ambiente contêinerizado, utilizando Multipass para criar uma máquina virtual e Docker para gerenciar os contêineres.
 
 Passo 1: Instalação do Multipass
 ================================
 
 Atualização de dependências 
 ----------------------------
-Atualize as dependências do Linux para que não haja qualquer outro erro com ``sudo apt update`` e também execute o comando ``sudo apt upgrade``.
+Antes de instalar o Multipass, é importante garantir que todas as dependências do seu sistema estejam atualizadas:
 
+.. code-block:: rst
+
+   $ sudo apt update && sudo apt upgrade
 
 Download do Multipass
 ---------------------
@@ -239,10 +243,11 @@ Adicione mais duas linhas com seu IP da máquina virtual e seu nome de domínio 
    ff02::1 ip6-allnodes
    ff02::2 ip6-allrouters
 
-Pronto, agora feche e salve. Em seguida, reinicie o container servidorWeb. 
+Após configurar o arquivo hosts, reinicie o contêiner do servidor web:
 
 .. code-block:: rst
    
    $ docker container restart servidorWeb
 
-Após feito isso, tente acessar o domínio configurado.
+Agora você pode tentar acessar o domínio configurado (www.techarper.com) para verificar se a aplicação está funcionando corretamente.
+

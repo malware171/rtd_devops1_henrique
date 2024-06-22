@@ -98,12 +98,16 @@
              
   <section id="guia-para-subir-aplicacao-crud-conteinerizada">
 <h1>Guia para subir aplicação CRUD contêinerizada!<a class="headerlink" href="#guia-para-subir-aplicacao-crud-conteinerizada" title="Link to this heading"></a></h1>
+<p>Este guia passo a passo o ajudará a configurar e executar uma aplicação CRUD em um ambiente contêinerizado, utilizando Multipass para criar uma máquina virtual e Docker para gerenciar os contêineres.</p>
 </section>
 <section id="passo-1-instalacao-do-multipass">
 <h1>Passo 1: Instalação do Multipass<a class="headerlink" href="#passo-1-instalacao-do-multipass" title="Link to this heading"></a></h1>
 <section id="atualizacao-de-dependencias">
 <h2>Atualização de dependências<a class="headerlink" href="#atualizacao-de-dependencias" title="Link to this heading"></a></h2>
-<p>Atualize as dependências do Linux para que não haja qualquer outro erro com <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span></code> e também execute o comando <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">upgrade</span></code>.</p>
+<p>Antes de instalar o Multipass, é importante garantir que todas as dependências do seu sistema estejam atualizadas:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>$ sudo apt update &amp;&amp; sudo apt upgrade
+</pre></div>
+</div>
 </section>
 <section id="download-do-multipass">
 <h2>Download do Multipass<a class="headerlink" href="#download-do-multipass" title="Link to this heading"></a></h2>
@@ -263,11 +267,11 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 </pre></div>
 </div>
-<p>Pronto, agora feche e salve. Em seguida, reinicie o container servidorWeb.</p>
+<p>Após configurar o arquivo hosts, reinicie o contêiner do servidor web:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>$ docker container restart servidorWeb
 </pre></div>
 </div>
-<p>Após feito isso, tente acessar o domínio configurado.</p>
+<p>Agora você pode tentar acessar o domínio configurado (www.techarper.com) para verificar se a aplicação está funcionando corretamente.</p>
 </section>
 
 
